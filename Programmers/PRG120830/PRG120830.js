@@ -23,4 +23,13 @@ function solution(n, k) {
   return answer;
 }
 
-console.log(solution(1, 3));
+function solution2(n, k) {
+  var answer = 0;
+  let a = n % 10;
+  a = n - a;
+  k = k - a / 10;
+  answer = n * 12000 + k * 2000;
+  return answer;
+}
+
+console.log(solution2(64, 6));
