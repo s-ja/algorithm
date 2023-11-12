@@ -13,8 +13,9 @@ const key = input.shift();
 
 // 인자로 주어지는 총 국가의 수
 const countrys = key.split(" ")[0];
-// 순의를 구하고자 하는 국가 번호
+// 순위를 구하고자 하는 국가 번호
 const countryNumber = key.split(" ")[1];
+
 //국가 번호와 매달 획득 수 구분 없이 들어있는 배열
 const numberAndMedals = [];
 
@@ -46,14 +47,6 @@ for (let index = 0; index < country.length; index++) {
   country[index].score = countriesScore;
 }
 
-// 각 국가의 번호와 매달 획득 갯수 마지막으로 점수를 담은 객체
-// console.log(country);
-
-// for (let index = 0; index < country.length; index++) {
-//   if (country[index].score > country[index + 1].score) {
-//     [country[index], country[index + 1]] = [country[index + 1], country[index]];
-//   }
-// }
 country = country.sort((a, b) => {
   if (a.score < b.score) return 1;
   if (a.score > b.score) return -1;
