@@ -9,43 +9,31 @@ let input = fs
 
 const key = input.shift();
 
-// 인자로 주어지는 총 국가의 수
 const countries = Number(key.split(" ")[0]);
-// 순위를 구하고자 하는 국가 번호
 const countryNumber = Number(key.split(" ")[1]);
 
-//국가 번호와 매달 획득 수 구분 없이 들어있는 배열
-const numberAndMedals = [];
+const medals = input.map((a) => a.split(" ").map(Number));
 
-for (let index = 0; index < input.length; index++) {
-  const element = input[index].split(" ");
-  numberAndMedals.push(element);
-}
+medals.sort((a, b) => {
+  if (a[1] !== b[1]) return b[1] - a[1];
+  if (a[2] !== b[2]) return b[2] - a[2];
+  return b[3] - a[3];
+});
 
-let country = [];
-
-function countryConverter(x) {
-  for (let index = 0; index < x.length; index++) {
-    const numberAndMedal = {
-      number: x[index].shift(),
-      arr: x[index],
-    };
-    country.push(numberAndMedal);
+let rank = 1;
+for (let i = 0; i < medals.length; i++) {
+  if (medals[i][0] === countryNumber) {
+    break;
+  }
+  if (
+    i === 0 ||
+    medals[i][1] !== medals[i - 1][1] ||
+    medals[i][2] !== medals[i - 1][2] ||
+    medals[i][3] !== medals[i - 1][3]
+  ) {
+    rank = i + 1;
   }
 }
 
-countryConverter(numberAndMedals);
-
-country.sort((a, b) => {
-  if (a.arr[0] !== b.arr[0]) return b.arr[0] - a.arr[0]; // 금메달 수 비교
-  if (a.arr[1] !== b.arr[1]) return b.arr[1] - a.arr[1]; // 은메달 수 비교
-  return b.arr[2] - a.arr[2]; // 동메달 수 비교
-});
-
-function numberFind(countries) {
-  return countries.number === countryNumber;
-}
-
-console.log(country.indexOf(country.find(numberFind)));
-
-console.log(country);
+console.log(medals);
+console.log(rank);
