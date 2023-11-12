@@ -32,7 +32,7 @@ function solution(inputCount, inputTestCase) {
 
   for (i = 0; i <= inputCount; i++) {
     const arr = inputTestCase[i].arr;
-    for (j = 0; j <= arr.length + 1; j++) {
+    for (j = 0; (j = true); j++) {
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
         step = step + 1;
