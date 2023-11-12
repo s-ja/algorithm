@@ -25,23 +25,18 @@ for (let i = 1; i <= inputCount; i++) {
 }
 
 // console.log(inputCount);
-// console.log(inputTestCase[0].arr);
+console.log(inputTestCase);
 
 function solution(inputCount, inputTestCase) {
   let step = 0;
 
-  function switchValues(arr, index1, index2) {
-    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
-  }
-
   for (i = 0; i <= inputCount; i++) {
-    for (j = 1; j <= inputTestCase[i].arr.length; j++) {
-      if (inputTestCase[i].arr[0] > inputTestCase[i].arr[1]) {
-        switchValues(inputTestCase[i].arr, 0, 1);
-      }
+    const arr = inputTestCase[i].arr;
+    if (arr[0] > arr[1]) {
+      [arr[0], arr[1]] = [arr[1], arr[0]];
     }
+    console.log(arr);
   }
-  console.log(inputTestCase);
 }
 
 solution(inputCount, inputTestCase);
