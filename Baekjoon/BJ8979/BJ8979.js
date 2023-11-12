@@ -2,19 +2,17 @@ const { log } = require("console");
 const fs = require("fs");
 const { SourceMap } = require("module");
 let input = fs
-  .readFileSync(
-    "/Users/seungjian/Desktop/DEV/algorythm/Baekjoon/BJ8979/input.txt"
-  )
+  .readFileSync("Baekjoon/BJ8979/input.txt")
   .toString()
-  .trim();
-input = input.split("\n");
+  .trim()
+  .split("\n");
 
 const key = input.shift();
 
 // 인자로 주어지는 총 국가의 수
-const countrys = key.split(" ")[0];
+const countries = Number(key.split(" ")[0]);
 // 순위를 구하고자 하는 국가 번호
-const countryNumber = key.split(" ")[1];
+const countryNumber = Number(key.split(" ")[1]);
 
 //국가 번호와 매달 획득 수 구분 없이 들어있는 배열
 const numberAndMedals = [];
@@ -38,22 +36,16 @@ function countryConverter(x) {
 
 countryConverter(numberAndMedals);
 
-country = country.sort((a, b) => {
-  return a.arr[0] - b.arr[0];
-});
-
-country = country.sort((a, b) => {
-  return a.arr[1] - b.arr[1];
-});
-
-country = country.sort((a, b) => {
-  return a.arr[2] - b.arr[2];
+country.sort((a, b) => {
+  if (a.arr[0] !== b.arr[0]) return b.arr[0] - a.arr[0]; // 금메달 수 비교
+  if (a.arr[1] !== b.arr[1]) return b.arr[1] - a.arr[1]; // 은메달 수 비교
+  return b.arr[2] - a.arr[2]; // 동메달 수 비교
 });
 
 function numberFind(countries) {
   return countries.number === countryNumber;
 }
 
-// console.log(country.indexOf(country.find(numberFind)));
+console.log(country.indexOf(country.find(numberFind)));
 
 console.log(country);
