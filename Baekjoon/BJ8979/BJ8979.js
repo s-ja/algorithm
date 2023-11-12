@@ -31,7 +31,6 @@ function countryConverter(x) {
     const numberAndMedal = {
       number: x[index].shift(),
       arr: x[index],
-      score: 0,
     };
     country.push(numberAndMedal);
   }
@@ -39,22 +38,22 @@ function countryConverter(x) {
 
 countryConverter(numberAndMedals);
 
-for (let index = 0; index < country.length; index++) {
-  const countriesScore =
-    country[index].arr[0] * 3 +
-    country[index].arr[1] * 2 +
-    country[index].arr[2] * 1;
-  country[index].score = countriesScore;
-}
+country = country.sort((a, b) => {
+  return a.arr[0] - b.arr[0];
+});
 
 country = country.sort((a, b) => {
-  if (a.score < b.score) return 1;
-  if (a.score > b.score) return -1;
-  if (a.score === b.score) return 0;
+  return a.arr[1] - b.arr[1];
+});
+
+country = country.sort((a, b) => {
+  return a.arr[2] - b.arr[2];
 });
 
 function numberFind(countries) {
   return countries.number === countryNumber;
 }
 
-console.log(country.indexOf(country.find(numberFind)));
+// console.log(country.indexOf(country.find(numberFind)));
+
+console.log(country);
