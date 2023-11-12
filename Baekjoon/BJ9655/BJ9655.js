@@ -25,17 +25,20 @@ for (let i = 1; i <= inputCount; i++) {
 }
 
 // console.log(inputCount);
-console.log(inputTestCase);
+// console.log(inputTestCase);
 
 function solution(inputCount, inputTestCase) {
   let step = 0;
 
   for (i = 0; i <= inputCount; i++) {
     const arr = inputTestCase[i].arr;
-    if (arr[0] > arr[1]) {
-      [arr[0], arr[1]] = [arr[1], arr[0]];
+    for (j = 0; j <= arr.length + 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        step = step + 1;
+      }
     }
-    console.log(arr);
+    console.log(inputCount, step);
   }
 }
 
