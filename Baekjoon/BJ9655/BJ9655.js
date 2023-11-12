@@ -12,14 +12,9 @@ const inputTestCase = [];
 
 for (let i = 1; i <= inputCount; i++) {
   const arr = input[i].split(" ").map((item) => +item);
-  //   console.log(arr);
-  let newArr = [];
-  for (let j = 1; j < arr.length; j++) {
-    newArr.push(arr[j]);
-  }
   const testCase = {
     N: arr[0],
-    arr: newArr,
+    arr: arr.slice(1),
   };
   inputTestCase.push(testCase);
 }
@@ -28,17 +23,20 @@ for (let i = 1; i <= inputCount; i++) {
 // console.log(inputTestCase);
 
 function solution(inputCount, inputTestCase) {
-  let step = 0;
-
-  for (i = 0; i <= inputCount; i++) {
+  for (let i = 0; i < inputCount; i++) {
     const arr = inputTestCase[i].arr;
-    for (j = 0; (j = true); j++) {
-      if (arr[j] > arr[j + 1]) {
-        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-        step = step + 1;
+    let steps = 0;
+
+    for (let j = 0; j < arr.length; j++) {
+      for (let k = 0; k < arr.length - 1 - j; k++) {
+        if (arr[k] > arr[k + 1]) {
+          [arr[k], arr[k + 1]] = [arr[k + 1], arr[k]];
+          steps++;
+        }
       }
     }
-    console.log(inputCount, step);
+
+    console.log(`${i + 1} ${steps}`);
   }
 }
 
