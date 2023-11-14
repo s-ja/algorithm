@@ -40,7 +40,19 @@ for (let j = 0; j < uniqueArr.length; j++) {
   test.push(testCase);
 }
 
+let test2 = {};
+
+input.forEach((book) => {
+  test2[book] = (test2[book] || 0) + 1;
+});
+
+// console.log(test2);
+
 // console.log(test);
+
+// for (i in test2) {
+//   console.log(test2[i]);
+// }
 
 let testFirst = test[0];
 
@@ -56,4 +68,19 @@ for (let k = 0; k < test.length; k++) {
   }
 }
 
-console.log(testFirst.title);
+// console.log(testFirst.title);
+
+// const bookCounts = {};
+
+// input.forEach((book) => {
+//   bookCounts[book] = (bookCounts[book] || 0) + 1;
+// });
+
+// const sortedBooks = Object.keys(bookCounts).sort((a, b) => {
+//   if (bookCounts[b] === bookCounts[a]) {
+//     return a.localeCompare(b);
+//   }
+//   return bookCounts[b] - bookCounts[a];
+// });
+
+// console.log(sortedBooks[0]);
