@@ -24,49 +24,28 @@ for (let i = 0; i < input.length; i++) {
   count.push(ab);
 }
 
-// console.log(count);
+// console.log(input);
+console.log(count);
 
-for (let i = 0; i < count.length; i++) {
-  if (count[i].length % 2 !== 0) {
-    // console.log();
-  } else {
-    even.push(count[i]);
-  }
-}
+function countValidWords(words) {
+  let validCount = 0;
 
-// for (let j = 0; j < count.length; j++) {
-//   for (let i = 0; i < count[j].length; i++) {
-//     if (count[j].length % 2 !== 0) {
-//       console.log("홀수");
-//     } else if (
-//       count[i][j] !== count[i][j + 1] &&
-//       count[i][j + 1] !== count[i][j + 2]
-//     ) {
-//       console.log("fail");
-//     } else if (count[i][j] === count[i][j + 1]) {
-//       console.log("find");
-//       result.push(count[j]);
-//     }
-//   }
-// }
-
-// console.log(even);
-
-// 2. A 다음에 B가 온다면 그 B의 다음에 B 가 오지 않는 경우를 제외한다.
-// 2. A 다음에 A 혹은 B 다음에 B 가 오는 경우를 찾는다
-
-let result = [];
-
-for (let i = 0; i < even.length; i++) {
-  //   console.log(even[i]);
-  for (let j = 0; j < even[i].length; j++) {
-    if (even[i][j] !== even[i][j + 1] && even[i][j + 1] !== even[i][j + 2]) {
-      break;
-    } else if (even[i][j] === even[i][j + 1]) {
-      result.push(even[i]);
-      break;
+  words.forEach((word) => {
+    const stack = [];
+    for (const char of word) {
+      if (stack.length && stack[stack.length - 1] === char) {
+        stack.pop();
+      } else {
+        stack.push(char);
+      }
     }
-  }
+    if (stack.length === 0) {
+      validCount++;
+    }
+  });
+
+  return validCount;
 }
 
-console.log(result);
+const validCount = countValidWords(input);
+console.log(validCount);
