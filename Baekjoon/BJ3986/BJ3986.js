@@ -14,19 +14,6 @@ let input = fs
 
 const dataLength = input.shift();
 
-// console.log(input);
-
-let count = [];
-let even = [];
-
-for (let i = 0; i < input.length; i++) {
-  let ab = [...input[i]];
-  count.push(ab);
-}
-
-// console.log(input);
-console.log(count);
-
 function countValidWords(words) {
   let validCount = 0;
 
