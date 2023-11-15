@@ -27,8 +27,8 @@ let [a, b] = input;
 let aArr = [...a];
 let bArr = [...b];
 
-console.log(aArr);
-console.log(bArr);
+// console.log(aArr);
+// console.log(bArr);
 
 test = [];
 
@@ -74,7 +74,7 @@ answer = [];
 
 for (let i = 0; i < bArr.length - aArr.length + 1; i++) {
   let count = 0;
-  for (let j = 0; j < bArr.length - aArr.length + 1; j++) {
+  for (let j = 0; j < aArr.length; j++) {
     if (aArr[j] !== b[i + j]) {
       count = count + 1;
     }
@@ -83,4 +83,4 @@ for (let i = 0; i < bArr.length - aArr.length + 1; i++) {
 }
 
 // console.log(Math.min.apply(null, answer));
-console.log(answer);
+console.log(Math.min(...answer));
