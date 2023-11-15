@@ -40,7 +40,7 @@ for (let i = 1; i < bArr.length; i++) {
   test.push(clone);
 }
 
-// console.log(test);
+console.log(test);
 
 for (let i = 0; i < bArr.length - aArr.length; i++) {
   if (test[i + 1]) {

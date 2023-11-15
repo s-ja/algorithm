@@ -10,13 +10,27 @@ const data = input.map(Number);
 
 const number = data.shift();
 
-console.log(number);
-console.log(data);
+// console.log(number);
+// console.log(data);
 
-// data.sort((a, b) => return (a - b))
+let a = 0;
 
-data.sort(function (a, b) {
-  return b - a;
-});
+for (let i = 0; i < data.length; i++) {
+  if (i % 2 === 0) {
+    a = a + data[i];
+  } else {
+    a = a - data[i];
+  }
+}
 
-console.log(data);
+a = a / 2;
+
+let result = [a];
+
+for (let i = 0; i < data.length - 1; i++) {
+  result.push(data[i] - result[i]);
+}
+
+for (let i = 0; i < result.length; i++) {
+  console.log(result[i].toString());
+}
