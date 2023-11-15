@@ -8,40 +8,14 @@ input = Number(input);
 
 let data = [];
 
-function find1(input) {
-  let count = 0;
-  while (input !== 1) {
-    if (input % 3 === 0) {
-      input = input / 3;
-      count++;
-    } else if (input % 2 === 0) {
-      input = input / 2;
-      count++;
-    } else {
-      input = input - 1;
-      count++;
-    }
-  }
-  data.push(count);
-}
-function find2(input) {
-  let count = 0;
-  while (input !== 1) {
-    if (input) {
-      input = input - 1;
-      count++;
-    } else if (input % 3 === 0) {
-      input = input / 3;
-      count++;
-    } else if (input % 2 === 0) {
-      input = input / 2;
-      count++;
-    }
-  }
-  data.push(count);
-}
-
-find1(input);
-find2(input);
+// for (let i = 2; i < input + 1; i++) {
+//   data[i] = data[i - 1] + 1;
+//   if (i % 2 === 0) {
+//     data[i] = Math.min(data[i], data[i / 2] + 1);
+//   }
+//   if (i % 3 === 0) {
+//     data[i] = Math.min(data[i], data[i / 3] + 1);
+//   }
+// }
 
 console.log(data);
