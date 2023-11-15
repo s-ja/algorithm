@@ -6,16 +6,21 @@ input = Number(input);
 
 // console.log(typeof input, input);
 
-let data = [];
+function minOperations(N) {
+  const dp = Array(N + 1).fill(0);
+  console.log(dp);
 
-// for (let i = 2; i < input + 1; i++) {
-//   data[i] = data[i - 1] + 1;
-//   if (i % 2 === 0) {
-//     data[i] = Math.min(data[i], data[i / 2] + 1);
-//   }
-//   if (i % 3 === 0) {
-//     data[i] = Math.min(data[i], data[i / 3] + 1);
-//   }
-// }
+  for (let i = 2; i <= N; i++) {
+    dp[i] = dp[i - 1] + 1;
+    if (i % 2 === 0) {
+      dp[i] = Math.min(dp[i], dp[i / 2] + 1);
+    }
+    if (i % 3 === 0) {
+      dp[i] = Math.min(dp[i], dp[i / 3] + 1);
+    }
+  }
 
-console.log(data);
+  return dp[N];
+}
+
+console.log(minOperations(input));
