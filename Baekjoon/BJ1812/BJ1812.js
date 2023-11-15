@@ -13,12 +13,10 @@ const number = data.shift();
 console.log(number);
 console.log(data);
 
-let candy = data[0];
-console.log(candy);
+// data.sort((a, b) => return (a - b))
 
-for (let i = 1; i <= data.length - 2; i++) {
-  console.log(Math.abs(data[i] - data[i + 1]));
-  candy = candy + Math.abs(data[i] - data[i + 1]);
-}
+data.sort(function (a, b) {
+  return b - a;
+});
 
-console.log(candy);
+console.log(data);
