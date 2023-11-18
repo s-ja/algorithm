@@ -13,18 +13,23 @@ let soldNumber = input.shift();
 
 let moreThan2 = input.filter((item, index) => input.indexOf(item) !== index);
 
-// console.log(moreThan2);
+console.log(moreThan2);
 
 let uniqueArr = [];
+
 moreThan2.forEach((element) => {
   if (!uniqueArr.includes(element)) {
     uniqueArr.push(element);
   }
 });
 
-// 1. 오늘 판매된 책들 중 2권 이상 팔린 책들의 목록을 만든다.
-// 2. 오늘 판매된 책들 중 2권 이상 팔린 책의 목록 안에 있는 책들의 판매 갯수를 산출한다.
-// 3. 판매된 갯수가 동일하다면 사전순으로 정렬하여 가장 앞에 있는 책을 반환한다.
+console.log(uniqueArr);
+
+// 1. 오늘 판매된 책들 중 2권 이상 팔린 책들의 목록을 만든다(N).
+// 2. N 목록 안에 있는 책들의 판매 갯수를 산출한다(K).
+// 3. K에서 가장 높은 수를 뽑는다(L).
+// 4. K에서 L 판매 갯수만큼 판매된 책의 목록을 만든다(J).
+// 5. J를 알파벳 오름 차순으로 정렬, 첫번째 요소를 반환한다.
 
 let test = [];
 for (let j = 0; j < uniqueArr.length; j++) {
@@ -40,19 +45,19 @@ for (let j = 0; j < uniqueArr.length; j++) {
   test.push(testCase);
 }
 
+console.log(test);
+
 let test2 = {};
 
 input.forEach((book) => {
   test2[book] = (test2[book] || 0) + 1;
 });
 
-// console.log(test2);
+console.log(test2);
 
-// console.log(test);
-
-// for (i in test2) {
-//   console.log(test2[i]);
-// }
+for (i in test2) {
+  console.log(test2[i]);
+}
 
 let testFirst = test[0];
 
@@ -68,19 +73,4 @@ for (let k = 0; k < test.length; k++) {
   }
 }
 
-// console.log(testFirst.title);
-
-// const bookCounts = {};
-
-// input.forEach((book) => {
-//   bookCounts[book] = (bookCounts[book] || 0) + 1;
-// });
-
-// const sortedBooks = Object.keys(bookCounts).sort((a, b) => {
-//   if (bookCounts[b] === bookCounts[a]) {
-//     return a.localeCompare(b);
-//   }
-//   return bookCounts[b] - bookCounts[a];
-// });
-
-// console.log(sortedBooks[0]);
+console.log(testFirst.title);
