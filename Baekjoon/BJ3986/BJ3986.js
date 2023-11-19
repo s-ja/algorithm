@@ -34,5 +34,5 @@ function countValidWords(words) {
   return validCount;
 }
 
-const validCount = countValidWords(input);
-console.log(validCount);
+// const validCount = countValidWords(input);
+console.log(countValidWords(input));
