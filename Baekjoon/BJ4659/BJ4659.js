@@ -12,38 +12,50 @@ const end = input.pop();
 // 모음이 3개 혹은 자음이 3개 연속으로 오면 안 된다.
 // 같은 글자가 연속적으로 두번 오면 안되나, ee 와 oo는 허용한다.
 
-const vowel = ["a", "e", "i", "o", "u"];
-const consonant = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m"];
-
-for (let i = 0; i < input.length; i++) {
-  if (
-    input[i].split("").includes("a") ||
-    input[i].split("").includes("e") ||
-    input[i].split("").includes("i") ||
-    input[i].split("").includes("o") ||
-    input[i].split("").includes("u")
-  ) {
-    for (let j = 0; j < input[i].length; j++) {
-      if (!input[i].split("")[j + 1]) {
-        console.log(`<${input[i]}> is acceptable.`);
-      }
-      if (input[i].split("")[j] === input[i].split("")[j + 1]) {
-        if (
-          (input[i].split("")[j] === "e" ??
-            input[i].split("")[j + 1] === "e") ||
-          (input[i].split("")[j] === "o" ?? input[i].split("")[j + 1] === "o")
-        ) {
-          console.log(`<${input[i]}> is acceptable.`);
-        } else {
-          console.log(`<${input[i]}> is not acceptable.`);
-        }
-      }
-    }
-  } else {
-    console.log(`<${input[i]}> is not acceptable.`);
-  }
-}
-
 // "a", "e", "i", "o", "u" 를 포함하지 않는 문자열을 거른다.
 // 같은 글자가 연속적으로 두번 오는 경우를 거른다.
 // "ee", "oo" 는 허용한다.
+
+function isAcceptable(password) {
+  let hasVowel = false; // 모음 포함 여부
+  let consecutiveVowel = 0; // 연속 모음 수
+  let consecutiveConsonant = 0; // 연속 자음 수
+  let prevChar = "";
+
+  for (let i = 0; i < password.length; i++) {
+    const char = password[i];
+    const isVowel = "aeiou".includes(char);
+
+    // 모음 확인
+    if (isVowel) {
+      hasVowel = true;
+      consecutiveVowel++;
+      consecutiveConsonant = 0;
+    } else {
+      consecutiveConsonant++;
+      consecutiveVowel = 0;
+    }
+
+    // 같은 글자가 연속되는지, "ee"와 "oo"인 경우는 허용
+    if (char === prevChar && char !== "e" && char !== "o") return false;
+
+    // 연속된 모음 또는 자음이 3개인 경우
+    if (consecutiveVowel === 3 || consecutiveConsonant === 3) return false;
+
+    prevChar = char;
+  }
+
+  return hasVowel;
+}
+
+function solution(input) {
+  for (const password of input) {
+    if (password === "end") break;
+    const result = isAcceptable(password)
+      ? "is acceptable."
+      : "is not acceptable.";
+    console.log(`<${password}> ${result}`);
+  }
+}
+
+solution(input);
