@@ -6,7 +6,7 @@ let input = fs
   .split("\n");
 
 const end = input.pop();
-console.log(input);
+// console.log(input);
 
 // 모음(a,e,i,o,u) 하나를 반드시 포함하여야 한다.
 // 모음이 3개 혹은 자음이 3개 연속으로 오면 안 된다.
@@ -24,14 +24,17 @@ for (let i = 0; i < input.length; i++) {
     input[i].split("").includes("u")
   ) {
     for (let j = 0; j < input[i].length; j++) {
-      if (input[i].split("")[j] === input[i].split("")[j + 1] ?? input[i].split("")[j] === input[i].split("")[j + 2]) {
+      if (!input[i].split("")[j + 1]) {
+        console.log(`<${input[i]}> is acceptable.`);
+      }
+      if (input[i].split("")[j] === input[i].split("")[j + 1]) {
         if (
           (input[i].split("")[j] === "e" ??
             input[i].split("")[j + 1] === "e") ||
           (input[i].split("")[j] === "o" ?? input[i].split("")[j + 1] === "o")
         ) {
           console.log(`<${input[i]}> is acceptable.`);
-        }else {
+        } else {
           console.log(`<${input[i]}> is not acceptable.`);
         }
       }
