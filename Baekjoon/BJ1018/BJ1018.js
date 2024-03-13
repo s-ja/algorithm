@@ -17,23 +17,25 @@ for (elem of input) {
 // console.log(N,M)
 // console.log(board)
 
-const test = []
+const test = [];
 
 for (let i = 0; i <= N - 8; i++) {
-    for (let j = 0; j <= M - 8; j++) {
-        
+  for (let j = 0; j <= M - 8; j++) {
+    let boardCopy = [...board];
+    test.push(boardCopy.splice(j, 8));
   }
 }
 
-[
-  ["B", "B", "B", "B", "B", "B", "B", "B", "B", "B"],
-  ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
-  ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
-  ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
-  ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
-  ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
-  ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
-  ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
-  ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
-  ["B", "B", "B", "B", "B", "B", "B", "B", "B", "B"],
-];
+console.log(test);
+// [
+//   ["B", "B", "B", "B", "B", "B", "B", "B", "B", "B"],
+//   ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
+//   ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
+//   ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
+//   ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
+//   ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
+//   ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
+//   ["B", "B", "W", "B", "W", "B", "W", "B", "W", "B"],
+//   ["B", "W", "B", "W", "B", "W", "B", "W", "B", "B"],
+//   ["B", "B", "B", "B", "B", "B", "B", "B", "B", "B"],
+// ];
