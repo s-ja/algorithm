@@ -1,0 +1,95 @@
+const fs = require("fs");
+let input = fs
+  .readFileSync("Baekjoon/BJ20125/input.txt")
+  .toString()
+  .trim()
+  .split("\n");
+
+const n = Number(input.shift());
+
+let matrix = [];
+
+for (elem of input) {
+  matrix.push(elem.split(""));
+}
+
+// console.log(n, matrix);
+let headRow = 0;
+let headCol = 0;
+
+for (let i = 0; i < n; i++) {
+  let kill = false;
+  for (let j = 0; j < n; j++) {
+    if (matrix[i][j] === "*") {
+      headRow = i;
+      headCol = j;
+      kill = true;
+      break;
+    }
+  }
+  if (kill === true) {
+    break;
+  }
+}
+
+const heartRow = headRow + 1;
+const heartCol = headCol;
+
+// console.log(heartRow, heartCol);
+
+const leftArmPoint = matrix[heartRow].indexOf("*");
+const rightArmPoint = matrix[heartRow].lastIndexOf("*");
+
+// console.log(leftArmPoint, rightArmPoint);
+
+const leftArmLength = heartCol - leftArmPoint;
+const rightArmLength = rightArmPoint - heartCol;
+
+// console.log(leftArmLength, rightArmLength);
+
+let headWaist = 0;
+
+for (let i = 0; i < n; i++) {
+  for (let j = 0; j < heartCol + 1; j++) {
+    if (j === headCol && matrix[i][j] === "*") {
+      headWaist++;
+    }
+  }
+}
+
+const waistLength = headWaist - 2;
+
+// console.log(waistLength);
+
+let leftlegLength = 0;
+
+for (let i = heartRow + waistLength + 1; i < n; i++) {
+  for (elem of matrix[i]) {
+    if (elem === "*") {
+      leftlegLength++;
+      break;
+    }
+  }
+}
+
+// console.log(leftlegLength);
+
+let rightlegLength = 0;
+
+for (let i = heartRow + waistLength + 1; i < n; i++) {
+  for (let j = heartCol; j < n; j++) {
+    if (matrix[i][j] === "*") {
+      rightlegLength++;
+      break;
+    }
+  }
+}
+
+console.log(heartRow + 1, heartCol + 1);
+console.log(
+  leftArmLength,
+  rightArmLength,
+  waistLength,
+  leftlegLength,
+  rightlegLength
+);
