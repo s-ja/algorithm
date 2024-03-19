@@ -13,7 +13,6 @@ for (elem of input) {
   matrix.push(elem.split(""));
 }
 
-// console.log(n, matrix);
 let headRow = 0;
 let headCol = 0;
 
@@ -35,17 +34,11 @@ for (let i = 0; i < n; i++) {
 const heartRow = headRow + 1;
 const heartCol = headCol;
 
-// console.log(heartRow, heartCol);
-
 const leftArmPoint = matrix[heartRow].indexOf("*");
 const rightArmPoint = matrix[heartRow].lastIndexOf("*");
 
-// console.log(leftArmPoint, rightArmPoint);
-
 const leftArmLength = heartCol - leftArmPoint;
 const rightArmLength = rightArmPoint - heartCol;
-
-// console.log(leftArmLength, rightArmLength);
 
 let headWaist = 0;
 
@@ -59,8 +52,6 @@ for (let i = 0; i < n; i++) {
 
 const waistLength = headWaist - 2;
 
-// console.log(waistLength);
-
 let leftlegLength = 0;
 
 for (let i = heartRow + waistLength + 1; i < n; i++) {
@@ -71,8 +62,6 @@ for (let i = heartRow + waistLength + 1; i < n; i++) {
     }
   }
 }
-
-// console.log(leftlegLength);
 
 let rightlegLength = 0;
 
@@ -93,3 +82,18 @@ console.log(
   leftlegLength,
   rightlegLength
 );
+
+// console.log(`${heartRow + 1} ${headCol + 1}
+// ${leftArmLength} ${rightArmLength} ${waistLength} ${leftlegLength} ${rightlegLength}`);
+
+// 10
+// _______*__
+// __********
+// _______*__
+// _______*__
+// _______*__
+// ______*_*_
+// ______*_*_
+// ______*___
+// __________
+// __________
