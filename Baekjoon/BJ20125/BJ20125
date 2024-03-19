@@ -7,10 +7,10 @@ let input = fs
 
 const n = Number(input.shift());
 
-let matrix = [];
+let board = [];
 
 for (elem of input) {
-  matrix.push(elem.split(""));
+  board.push(elem.split(""));
 }
 
 let headRow = 0;
@@ -19,7 +19,7 @@ let headCol = 0;
 for (let i = 0; i < n; i++) {
   let kill = false;
   for (let j = 0; j < n; j++) {
-    if (matrix[i][j] === "*") {
+    if (board[i][j] === "*") {
       headRow = i;
       headCol = j;
       kill = true;
@@ -34,43 +34,45 @@ for (let i = 0; i < n; i++) {
 const heartRow = headRow + 1;
 const heartCol = headCol;
 
-const leftArmPoint = matrix[heartRow].indexOf("*");
-const rightArmPoint = matrix[heartRow].lastIndexOf("*");
+let leftArmLength = 0;
 
-const leftArmLength = heartCol - leftArmPoint;
-const rightArmLength = rightArmPoint - heartCol;
-
-let headWaist = 0;
-
-for (let i = 0; i < n; i++) {
-  for (let j = 0; j < heartCol + 1; j++) {
-    if (j === headCol && matrix[i][j] === "*") {
-      headWaist++;
-    }
+for (let i = 0; i < heartCol; i++) {
+  if (board[heartRow][i] === "*") {
+    leftArmLength++;
   }
 }
 
-const waistLength = headWaist - 2;
+let rightArmLength = 0;
+
+for (let i = heartCol + 1; i < n; i++) {
+  if (board[heartRow][i] === "*") {
+    rightArmLength++;
+  }
+}
+
+let waistLength = 0;
+let legStart = 0;
+
+for (let i = heartRow + 1; i < n; i++) {
+  if (board[i][heartCol] === "*") {
+    waistLength++;
+    legStart = i;
+  }
+}
 
 let leftlegLength = 0;
 
-for (let i = heartRow + waistLength + 1; i < n; i++) {
-  for (elem of matrix[i]) {
-    if (elem === "*") {
-      leftlegLength++;
-      break;
-    }
+for (let i = legStart; i < n; i++) {
+  if (board[i][heartCol - 1] === "*") {
+    leftlegLength++;
   }
 }
 
 let rightlegLength = 0;
 
-for (let i = heartRow + waistLength + 1; i < n; i++) {
-  for (let j = heartCol; j < n; j++) {
-    if (matrix[i][j] === "*") {
-      rightlegLength++;
-      break;
-    }
+for (let i = legStart; i < n; i++) {
+  if (board[i][heartCol + 1] === "*") {
+    rightlegLength++;
   }
 }
 
@@ -82,9 +84,6 @@ console.log(
   leftlegLength,
   rightlegLength
 );
-
-// console.log(`${heartRow + 1} ${headCol + 1}
-// ${leftArmLength} ${rightArmLength} ${waistLength} ${leftlegLength} ${rightlegLength}`);
 
 // 10
 // _______*__
