@@ -1,7 +1,7 @@
 const fs = require("fs");
 let input = fs
   .readFileSync("Baekjoon/BJ1244/input.txt")
-  // .readFileSync("/dev/stdin")
+  //   .readFileSync("/dev/stdin")
   .toString()
   .trim()
   .split("\n");
@@ -34,26 +34,45 @@ for (let i = 0; i < studentNumber; i++) {
       check = check + number;
     }
   } else {
-    let left = [...bulbs].splice(0, number - 1);
-    let right = [...bulbs].splice(number, left.length).reverse();
-    // console.log(left);
-    // console.log(right);
-    for (let j = 0; j < left.length; j++) {
-      if (left[j] === right[j]) {
-        if (left[j] === 1) {
-          left[j] = 0;
-          right[j] = 0;
+    let check = 0;
+    while (check < number) {
+      if (bulbs[number - 2 - check] === bulbs[number + check]) {
+        if (bulbs[number - 2 - check] === 1) {
+          bulbs[number - 2 - check] = 0;
+          bulbs[number + check] = 0;
+          //   console.log("1 " + bulbs);
         } else {
-          left[j] = 1;
-          right[j] = 1;
+          bulbs[number - 2 - check] = 1;
+          bulbs[number + check] = 1;
+          //   console.log("2 " + bulbs);
         }
+        // console.log(bulbs[number - 2 - check]);
+        // console.log(bulbs[number + 1 + check]);
       } else {
+        if (bulbs[number - 1] === 0) {
+          bulbs[number - 1] = 1;
+        } else {
+          bulbs[number - 1] = 0;
+        }
         break;
       }
+      check++;
+      //   console.log("check " + check);
     }
-    // console.log(left);
-    // console.log(right);
   }
 }
 
-// console.log(bulbs);
+let cnt = 0;
+let result = "";
+
+for (let j = 0; j < bulbs.length; j++) {
+  result += bulbs[j] + " ";
+  cnt++;
+  if (cnt === 20) {
+    console.log(result);
+    result = "";
+    cnt = 0;
+  }
+}
+
+console.log(result);
