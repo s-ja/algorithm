@@ -17,7 +17,7 @@ const N = Number(input.shift());
 const M = Number(input.shift());
 const x = input.shift().split(" ").map(Number);
 
-console.log(N, M, x);
+// console.log(N, M, x);
 
 // 1부터 N 까지 어두운(0) 상태의 배열을 만든다.
 // M 개의 갯수만큼 x(i) 위치에 가로등을 위치 시킨다.
@@ -28,29 +28,31 @@ const road = Array.from({ length: N }, () => 0);
 
 // for (let i = 0; i < N; i++) {
 //   if (x.includes(i)) {
-//     road[i - 1] = 1;
+//     road[i] = 1;
 //   }
 // }
 
 // console.log(road);
 
-let H = 1;
+let H = 0;
 
 while (road.includes(0)) {
+  H++;
   for (let i = 0; i < N; i++) {
     if (x.includes(i)) {
       road[i] = 1;
-    }
-    for (let j = 0; j < H; j++) {
-      if (road[i - 1]) {
-        road[i - 1 + j] = 1;
-        road[i - 1 - j] = 1;
+      for (let j = 1; j < H; j++) {
+        // if (road[i + j] === 0) {
+        //   road[i + j] = 1;
+        // }
+        if (road[i - j] === 0) {
+          road[i - j] = 1;
+        }
       }
+      console.log(road);
+      console.log("cut");
     }
-  }
-  if (road.includes(0)) {
-    H++;
   }
 }
 // console.log(road);
-console.log(H);
+// console.log(H);
