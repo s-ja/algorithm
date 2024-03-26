@@ -24,35 +24,9 @@ const x = input.shift().split(" ").map(Number);
 // 가로등의 높이 H 만큼 x(i) 위치 앞 뒤로 불을 밝힌다(1)
 // 배열중 어두운(0) 상태가 있다면 H를 1 증가시킨뒤 다시 확인한다.
 
-const road = Array.from({ length: N }, () => 0);
+const candidates = [];
 
-// for (let i = 0; i < N; i++) {
-//   if (x.includes(i)) {
-//     road[i] = 1;
-//   }
-// }
-
-// console.log(road);
-
-let H = 0;
-
-while (road.includes(0)) {
-  H++;
-  for (let i = 0; i < N; i++) {
-    if (x.includes(i)) {
-      road[i] = 1;
-      for (let j = 1; j < H; j++) {
-        // if (road[i + j] === 0) {
-        //   road[i + j] = 1;
-        // }
-        if (road[i - j] === 0) {
-          road[i - j] = 1;
-        }
-      }
-      console.log(road);
-      console.log("cut");
-    }
-  }
+for (let i = 0; i < M - 1; i++) {
+  candidates.push(Math.ceil((x[i + 1] - x[i]) / 2));
 }
-// console.log(road);
-// console.log(H);
+console.log(Math.max(x[0], Math.max(...candidates), N - x.at(-1)));
