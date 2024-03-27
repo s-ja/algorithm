@@ -29,4 +29,6 @@ const candidates = [];
 for (let i = 0; i < M - 1; i++) {
   candidates.push(Math.ceil((x[i + 1] - x[i]) / 2));
 }
+
+console.log(candidates);
 console.log(Math.max(x[0], Math.max(...candidates), N - x.at(-1)));
