@@ -11,7 +11,7 @@ let input = fs
 // 다음 줄에 M 개의 설치할 수 있는 가로등의 위치 x 가 주어진다. (0 ≤ x ≤ N)
 // 가로등의 위치 x는 오름차순으로 입력받으며 가로등의 위치는 중복되지 않으며, 정수이다.
 // 가로등의 높이가 H라면 왼쪽으로 H, 오른쪽으로 H만큼 주위를 비춘다.
-// 최소한의 예산이 들 높이를 구하자.
+// 최소 높이를 구하자.
 
 const N = Number(input.shift());
 const M = Number(input.shift());
@@ -30,5 +30,5 @@ for (let i = 0; i < M - 1; i++) {
   candidates.push(Math.ceil((x[i + 1] - x[i]) / 2));
 }
 
-console.log(candidates);
+// console.log(candidates);
 console.log(Math.max(x[0], Math.max(...candidates), N - x.at(-1)));
