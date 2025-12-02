@@ -1,7 +1,7 @@
 const fs = require('fs');
 const input = fs.readFileSync("Baekjoon/BJ14681/input.txt").toString().trim().split('\n');
 // const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
-//! const input = fs.readFileSync(0, 'utf-8').trim().split('\n');
+// const input = fs.readFileSync(0, 'utf-8').trim().split('\n');
 
 const [x, y] = input.map(Number);
 let quadrant = 0;
