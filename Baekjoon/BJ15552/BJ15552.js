@@ -5,7 +5,11 @@ const input = fs.readFileSync("Baekjoon/BJ15552/input.txt").toString().trim().sp
 
 const T = Number(input[0]);
 
+const result = [];
+
 for (let i = 1; i <= T; i++) {
   const [A, B] = input[i].split(" ").map(Number);
-  console.log(A + B);
+  result.push(A + B);
 }
+
+console.log(result.join("\n"));
