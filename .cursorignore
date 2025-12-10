@@ -1,0 +1,14 @@
+# Cursor 인덱싱 제외 파일/폴더
+# 주의: 이 파일은 '@' 컨텍스트 첨부 기능에도 영향을 줍니다
+# 자동완성 제어는 .vscode/settings.json에서 관리합니다
+
+# 빌드/의존성 파일만 제외 (알고리즘 문제 파일은 제외하지 않음)
+node_modules/
+.git/
+*.min.js
+package-lock.json
+yarn.lock
+
+
+
+
