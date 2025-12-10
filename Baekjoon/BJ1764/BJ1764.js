@@ -24,19 +24,15 @@ neverSeen.sort();
 
 const result = [];
 
-if (neverHeard.length < neverSeen.length) {
-  for (let i = 0; i < neverHeard.length; i++) {
-    if (neverSeen.includes(neverHeard[i])) {
-      result.push(neverHeard[i]);
-    }
-  }
-} else {
-  for (let i = 0; i < neverSeen.length; i++) {
-    if (neverHeard.includes(neverSeen[i])) {
+for (let i = 0; i < neverSeen.length; i++) {
+  for (let j = 0; j < neverHeard.length; j++) {
+    if (neverSeen[i] === neverHeard[j]) {
       result.push(neverSeen[i]);
+      break;
+    } else if (neverHeard[j] > neverSeen[i]) {
+      break;
     }
   }
 }
-
 console.log(result.length);
-console.log(result.sort().join("\n"));
+console.log(result.join("\n"));
