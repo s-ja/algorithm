@@ -19,11 +19,22 @@ for (let i = N; i < N + M; i++) {
   neverSeen.push(input[i]);
 }
 
+neverHeard.sort();
+neverSeen.sort();
+
 const result = [];
 
-for (let i = 0; i < input.length; i++) {
-  if (neverHeard.includes(input[i]) && neverSeen.includes(input[i])) {
-    result.push(input[i]);
+if (neverHeard.length < neverSeen.length) {
+  for (let i = 0; i < neverHeard.length; i++) {
+    if (neverSeen.includes(neverHeard[i])) {
+      result.push(neverHeard[i]);
+    }
+  }
+} else {
+  for (let i = 0; i < neverSeen.length; i++) {
+    if (neverHeard.includes(neverSeen[i])) {
+      result.push(neverSeen[i]);
+    }
   }
 }
 
