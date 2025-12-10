@@ -1,31 +1,60 @@
 {
   // 이 저장소에서만 적용되는 Cursor/VSCode 설정
-  // 알고리즘 문제 풀이를 위한 자동완성 제한 설정
-  
-  // AI 자동완성 관련 설정
+  // 알고리즘 문제 풀이를 위한 자동완성 완전 비활성화
+
+  // ============================================
+  // Cursor AI 자동완성 완전 비활성화
+  // ============================================
   "cursor.aiAutocomplete": false,
   "cursor.aiSuggestions": false,
-  
-  // 일반 자동완성 설정 (필요시 조정)
+  "cursor.general.enableAutoCompletions": false,
+  "cursor.chat.enableAutoCompletions": false,
+
+  // ============================================
+  // 인라인 제안 완전 비활성화
+  // ============================================
+  "editor.inlineSuggest.enabled": false,
+  "editor.suggest.showStatusBar": false,
+  "editor.suggest.preview": false,
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.acceptSuggestionOnEnter": "off",
+
+  // ============================================
+  // 일반 자동완성 완전 비활성화
+  // ============================================
   "editor.quickSuggestions": {
     "other": false,
     "comments": false,
     "strings": false
   },
-  
-  // 인라인 제안 비활성화
-  "editor.inlineSuggest.enabled": false,
-  
+  "editor.quickSuggestionsDelay": 0,
+  "editor.suggest.enablePreview": false,
+  "editor.suggest.localityBonus": false,
+  "editor.suggestSelection": "first",
+  "editor.wordBasedSuggestions": "off",
+  "editor.wordBasedSuggestionsMode": "off",
+
+  // ============================================
+  // 탭 완성 비활성화
+  // ============================================
+  "editor.tabCompletion": "off",
+
+  // ============================================
+  // 기타 설정
+  // ============================================
   // 자동 저장 비활성화 (선택사항)
   "files.autoSave": "off",
-  
+
   // 파일 감시 제외 (성능 최적화)
   "files.watcherExclude": {
     "**/node_modules/**": true,
     "**/.git/**": true
   },
-  
-  // Prettier 자동 포매팅 설정
+
+  // ============================================
+  // Prettier 자동 포매팅 설정 (유지)
+  // ============================================
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
@@ -43,4 +72,3 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
-
