@@ -11,34 +11,34 @@
   "cursor.chat.enableAutoCompletions": false,
 
   // ============================================
-  // 인라인 제안 완전 비활성화
+  // 인라인 제안 설정 (복구된 값)
   // ============================================
-  "editor.inlineSuggest.enabled": false,
-  "editor.suggest.showStatusBar": false,
-  "editor.suggest.preview": false,
-  "editor.suggestOnTriggerCharacters": false,
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.acceptSuggestionOnEnter": "off",
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggest.showStatusBar": true,
+  "editor.suggest.preview": true,
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
 
   // ============================================
-  // 일반 자동완성 완전 비활성화
+  // 일반 자동완성 설정 (복구된 값)
   // ============================================
   "editor.quickSuggestions": {
-    "other": false,
+    "other": true,
     "comments": false,
     "strings": false
   },
-  "editor.quickSuggestionsDelay": 0,
-  "editor.suggest.enablePreview": false,
-  "editor.suggest.localityBonus": false,
-  "editor.suggestSelection": "first",
-  "editor.wordBasedSuggestions": "off",
-  "editor.wordBasedSuggestionsMode": "off",
+  "editor.quickSuggestionsDelay": 10,
+  "editor.suggest.enablePreview": true,
+  "editor.suggest.localityBonus": true,
+  "editor.suggestSelection": "recentlyUsed",
+  "editor.wordBasedSuggestions": "on",
+  "editor.wordBasedSuggestionsMode": "matchingFirst",
 
   // ============================================
-  // 탭 완성 비활성화
+  // 탭 완성 활성화
   // ============================================
-  "editor.tabCompletion": "off",
+  "editor.tabCompletion": "on",
 
   // ============================================
   // 기타 설정
