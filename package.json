@@ -1,0 +1,16 @@
+{
+  "name": "algorithm-problems",
+  "version": "1.0.0",
+  "description": "알고리즘 문제 풀이 저장소",
+  "scripts": {
+    "create:bj": "node scripts/create-bj-problem.js",
+    "create:prg": "node scripts/create-prg-problem.js"
+  },
+  "keywords": [
+    "algorithm",
+    "baekjoon",
+    "programmers"
+  ],
+  "author": "",
+  "license": "ISC"
+}
