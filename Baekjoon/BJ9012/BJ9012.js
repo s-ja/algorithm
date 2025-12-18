@@ -10,17 +10,20 @@ const number = input.shift();
 const result = [];
 
 for (let i = 0; i < number; i++) {
-  const data = input[i];
-  let stackCount = 0;
-  for (let j = 0; j < data.length; j++) {
-    if (data[j] === "(") {
-      stackCount++;
-    }
-    if (data[j] === ")") {
-      stackCount--;
+  const stack = [];
+  for (let j = 0; j < input[i].length; j++) {
+    if (input[i][j] === "(") {
+      stack.push(input[i][j]);
+    } else if (input[i][j] === ")") {
+      if (stack.length === 0) {
+        stack.push(input[i][j]);
+        break;
+      } else {
+        stack.pop();
+      }
     }
   }
-  if (stackCount === 0) {
+  if (stack.length === 0) {
     result.push("YES");
   } else {
     result.push("NO");
