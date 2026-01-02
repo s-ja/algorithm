@@ -35,7 +35,7 @@ for (let i = 0; i < testCases.length; i++) {
   }
 }
 
-console.log(paintedCounts);
+// console.log(paintedCounts);
 console.log(Math.min(...paintedCounts));
 
 function painter(board, startColor) {
