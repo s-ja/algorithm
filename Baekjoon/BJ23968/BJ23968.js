@@ -20,28 +20,23 @@ let count = 0; // 몇 번의 교체가 진행됐는지 기록
 
 while (!sorted) {
   let changedCount = 0; // for문 안에서 몇 번의 교체가 진행 됐는지 기록
-  let lastChanged = []; // 마지막으로 교체된 두 숫자를 반복문 밖으로 꺼내기 위함
   for (let i = 0; i < N - 1; i++) {
     if (numbers[i] > numbers[i + 1]) {
+      // 스왑 전의 원래 값을 저장 (교환된 두 수를 출력하기 위함)
+      const swapped = [numbers[i], numbers[i + 1]];
       [numbers[i], numbers[i + 1]] = [numbers[i + 1], numbers[i]];
       changedCount++;
-      lastChanged = [numbers[i], numbers[i + 1]];
-      count += changedCount;
+      count++; // 각 교환마다 카운트를 1씩 증가
 
       if (count === K) {
-        // 입력으로 주어진 K 번째 교체에 도달 시, 마지막으로 교체한 두 숫자를 result에 저장 후 반복문 종료
-        result = lastChanged.sort((a, b) => a - b).join(" "); // 작은 수 부터 출력해야 함
+        // 입력으로 주어진 K 번째 교체에 도달 시, 교체한 두 숫자를 result에 저장 후 반복문 종료
+        result = swapped.sort((a, b) => a - b).join(" "); // 작은 수 부터 출력해야 함
+        sorted = true; // while문도 종료하기 위해 설정
         break;
       }
     }
   }
 
-  // count += changedCount; // 배열 모든 인자를 한 번 모두 훑을 때마다 반복문 안에서 몇 번의 교체가 진행됐는지 기록
-  // if (count === K) {
-  //   // 입력으로 주어진 K 번째 교체에 도달 시, 마지막으로 교체한 두 숫자를 result에 저장 후 반복문 종료
-  //   result = lastChanged.sort((a, b) => a - b).join(" "); // 작은 수 부터 출력해야 함
-  //   break;
-  // }
   if (changedCount === 0) {
     // while문 안에서 선언된 for문 내부 교체 횟수가 0이면 정렬이 완료된 것으로 간주
     sorted = true; // while문 종료를 위한 스위치 전환
