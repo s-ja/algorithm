@@ -15,7 +15,7 @@ let count = 0;
 
 const recordStore = (storedValue) => {
   count++;
-  console.log(`store #${count}: ${storedValue}`, arr);
+  // console.log(`store #${count}: ${storedValue}`, arr);
 
   if (count === K) {
     console.log(storedValue);
