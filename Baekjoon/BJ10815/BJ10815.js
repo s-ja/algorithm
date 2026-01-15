@@ -9,13 +9,13 @@ const input = fs
 // const input = fs.readFileSync(0, "utf-8").toString().trim().split("\n");
 
 const n = Number(input[0]);
-const cards = input[1].split(" ").map(Number);
+const cards = new Set(input[1].split(" ").map(Number));
 const m = Number(input[2]);
 const numbers = input[3].split(" ").map(Number);
 const result = [];
 
 for (let i = 0; i < m; i++) {
-  if (cards.includes(numbers[i])) {
+  if (cards.has(numbers[i])) {
     result.push(1);
   } else {
     result.push(0);
