@@ -30,19 +30,40 @@ for (let v = 1; v <= N; v++) {
 const orderOf = new Array(N + 1).fill(0);
 let order = 1;
 
+// function dfs(cur) {
+//   console.log("enter", cur, "order(before)=", order);
+
+//   orderOf[cur] = order++;
+//   console.log("visit", cur, "orderOf[cur]=", orderOf[cur]);
+
+//   for (const next of adj[cur]) {
+//     if (orderOf[next] !== 0) continue; // 이미 방문
+//     console.log("  cur", cur, "-> next", next, "visited?", orderOf[next] !== 0);
+//     dfs(next);
+//   }
+
+//   console.log("exit", cur);
+// }
+
 function dfs(cur) {
+  console.log("enter dfs:", cur);
+
   orderOf[cur] = order++;
+  console.log("visit", cur, "order =", orderOf[cur]);
 
   for (const next of adj[cur]) {
-    if (orderOf[next] !== 0) continue; // 이미 방문
+    console.log("  check next:", next);
+    if (orderOf[next] !== 0) continue;
     dfs(next);
   }
+
+  console.log("exit dfs:", cur);
 }
 
 dfs(R);
 
 // 출력: 1..N 각 정점의 방문 순서 (미방문이면 0)
-console.log(orderOf.slice(1).join("\n"));
+// console.log(orderOf.slice(1).join("\n"));
 
 // let out = "";
 // for (let v = 1; v <= N; v++) {
