@@ -39,11 +39,13 @@ queue.push(R);
 
 while (head < queue.length) {
   const cur = queue[head++];
+  console.log("pop", cur, "queue(remain)", queue.slice(head));
 
   for (const next of adj[cur]) {
     if (orderOf[next] !== 0) continue; // 이미 방문
     orderOf[next] = order++;
     queue.push(next);
+    console.log("  push", next);
   }
 }
 
