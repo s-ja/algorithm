@@ -30,29 +30,29 @@ for (let v = 1; v <= N; v++) {
 const orderOf = new Array(N + 1).fill(0);
 let order = 1;
 
-// function dfs(cur) {
-//   console.log("enter", cur, "order(before)=", order);
-
-//   orderOf[cur] = order++;
-//   console.log("visit", cur, "orderOf[cur]=", orderOf[cur]);
-
-//   for (const next of adj[cur]) {
-//     if (orderOf[next] !== 0) continue; // 이미 방문
-//     console.log("  cur", cur, "-> next", next, "visited?", orderOf[next] !== 0);
-//     dfs(next);
-//   }
-
-//   console.log("exit", cur);
-// }
-
 function dfs(cur) {
+  console.log("enter", cur, "order(before)=", order);
+
   orderOf[cur] = order++;
+  console.log("visit", cur, "orderOf[cur]=", orderOf[cur]);
 
   for (const next of adj[cur]) {
     if (orderOf[next] !== 0) continue; // 이미 방문
+    console.log("  cur", cur, "-> next", next, "visited?", orderOf[next] !== 0);
     dfs(next);
   }
+
+  console.log("exit", cur);
 }
+
+// function dfs(cur) {
+//   orderOf[cur] = order++;
+
+//   for (const next of adj[cur]) {
+//     if (orderOf[next] !== 0) continue; // 이미 방문
+//     dfs(next);
+//   }
+// }
 
 dfs(R);
 
