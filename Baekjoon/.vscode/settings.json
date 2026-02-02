@@ -1,0 +1,22 @@
+{
+  "cursor.aiAutocomplete": false,
+  "cursor.aiSuggestions": false,
+  "cursor.general.enableAutoCompletions": false,
+  "cursor.chat.enableAutoCompletions": false,
+
+  "editor.inlineSuggest.enabled": false,
+  "editor.suggest.showStatusBar": false,
+  "editor.suggest.preview": false,
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.acceptSuggestionOnEnter": "off",
+
+  "editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
+  "editor.tabCompletion": "off",
+  "editor.wordBasedSuggestions": "off",
+  "editor.wordBasedSuggestionsMode": "off"
+}
