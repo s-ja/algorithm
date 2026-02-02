@@ -1,3 +1,8 @@
+/**
+ * 문제 번호: BJ1991
+ * 문제 링크: https://www.acmicpc.net/problem/1991
+ */
+
 const fs = require("fs");
 // 로컬 테스트용 (input.txt 파일 사용)
 const input = fs
