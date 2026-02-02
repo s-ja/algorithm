@@ -1,12 +1,12 @@
 {
   "folders": [
     {
-      "name": "algorithm",
-      "path": "."
-    },
-    {
       "name": "Baekjoon",
       "path": "Baekjoon"
+    },
+    {
+      "name": "algorithm",
+      "path": "."
     }
   ],
   "settings": {},

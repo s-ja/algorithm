@@ -18,6 +18,7 @@ node scripts/create-bj-problem.js 10866
 ```
 
 이 명령어는 다음을 자동으로 생성합니다:
+
 - `Baekjoon/BJ10866/` 폴더
 - `BJ10866.js` 파일 (템플릿 기반)
 - `input.txt` 파일
@@ -33,6 +34,7 @@ node scripts/create-prg-problem.js 120583
 ```
 
 이 명령어는 다음을 자동으로 생성합니다:
+
 - `Programmers/PRG120583/` 폴더
 - `PRG120583.js` 파일 (템플릿 기반)
 
@@ -48,6 +50,13 @@ Baekjoon 문제만 풀 때 자동완성과 AI 코드 제안을 끄고 싶다면:
 
 1. **워크스페이스로 열기**: Cursor에서 `algorithm.code-workspace` 파일을 엽니다.  
    (파일 → 폴더에서 워크스페이스 열기 → `algorithm.code-workspace` 선택)
-2. 사이드바에 **algorithm**과 **Baekjoon** 두 개의 루트가 보입니다.
-3. **Baekjoon** 루트 아래의 `.js` 파일을 열어 편집하면, 그 파일에는 자동완성/코드 제안이 비활성화된 설정이 적용됩니다.
-4. `scripts/`, `Programmers/` 등 다른 파일은 **algorithm** 루트에서 열면 기존처럼 자동완성이 동작합니다.
+2. 워크스페이스에서 **Baekjoon**이 **첫 번째** 루트로 설정되어 있어, `Baekjoon/` 아래 파일을 열면 `Baekjoon/.vscode/settings.json`(자동완성 비활성화)이 적용됩니다.
+3. **Baekjoon** 루트 아래에서만 파일을 열어 편집하세요.  
+   사이드바에서 **Baekjoon** → BJ1991 → `BJ1991.js` 처럼 **Baekjoon** 루트를 통해 열면 됩니다.
+4. `scripts/`, `Programmers/` 등은 **algorithm** 루트에서 열면 기존처럼 자동완성이 동작합니다.
+
+**여전히 제안이 뜨는 경우 (수동 끄기):**
+
+- Cursor 설정에서 **Cursor Tab** 끄기: `Ctrl+Shift+J`(Mac: `Cmd+Shift+J`) → **Features** → **Cursor Tab** → **Disabled**
+- 또는 화면 우측 하단 **Cursor Tab** 버튼을 눌러 끄기
+- 워크스페이스를 연 뒤 Cursor를 한 번 재시작해 보세요.
