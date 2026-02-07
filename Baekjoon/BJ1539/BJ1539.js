@@ -11,16 +11,17 @@
 
 const fs = require("fs");
 
-const input = fs.readFileSync("Baekjoon/BJ1539/input.txt").toString().trim();
+// 로컬 테스트용
+const raw = fs.readFileSync("Baekjoon/BJ1539/input.txt", "utf8").trim();
 
 // ✅ 백준 제출용
-// const input = fs.readFileSync(0, "utf8").trim();
+// const raw = fs.readFileSync(0, "utf8").trim();
 
-if (input.length === 0) process.exit(0);
+if (raw.length === 0) process.exit(0);
 
-const data = data.split(/\s+/).map(Number);
-
-const N = input[0];
+// 줄바꿈/공백 섞여도 안전하게 숫자 파싱
+const data = raw.split(/\s+/).map(Number);
+const N = data[0];
 
 // -----------------------------
 // Fast RNG (xorshift32)
@@ -113,7 +114,7 @@ let root = null;
 let ans = 0n;
 
 for (let i = 1; i <= N; i++) {
-  const x = input[i];
+  const x = data[i];
 
   // pred/succ는 "삽입 전" 트리에서 찾는다.
   const pred = predecessor(root, x);
