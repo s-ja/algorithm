@@ -6,7 +6,7 @@
 const fs = require("fs");
 // 로컬 테스트용 (input.txt 파일 사용)
 const input = fs
-  .readFileSync("BJ1991/input.txt")
+  .readFileSync("Baekjoon/BJ1991/input.txt")
   .toString()
   .trim()
   .split("\n");
@@ -22,7 +22,7 @@ for (let i = 1; i <= N; i++) {
   tree[p] = [l, r];
 }
 
-// console.log(tree)
+console.log(tree);
 
 let pre = "";
 function preorder(node) {
