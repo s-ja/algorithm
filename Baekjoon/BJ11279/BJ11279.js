@@ -21,21 +21,30 @@ class MaxHeap {
     this.arr = [];
   }
 
-  size() {
-    return this.arr.length;
-  }
-
   push(x) {
     const a = this.arr;
     a.push(x);
+
     let i = a.length - 1;
+    console.log("[push start]", { x, a: [...a], i });
 
     while (i > 0) {
       const p = Math.floor((i - 1) / 2);
-      if (a[p] >= a[i]) break;
+      console.log("  [compare]", { i, p, parent: a[p], child: a[i] });
+
+      if (a[p] >= a[i]) {
+        console.log("  [stop] parent >= child");
+        break;
+      }
+
       [a[p], a[i]] = [a[i], a[p]];
+      console.log("  [swap]", { a: [...a] });
+
       i = p;
+      console.log("  [move up]", { i });
     }
+
+    console.log("[push end]", { a: [...a] });
   }
 
   pop() {
