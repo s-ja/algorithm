@@ -12,3 +12,37 @@ const input = fs
   .split("\n");
 // 백준 제출용 (표준 입력 사용)
 // const input = fs.readFileSync(0, "utf-8").toString().trim().split("\n");
+
+const [N, M, x, y, K] = input.shift().split(" ").map(Number);
+const map = input.slice(0, N).map((elem) => elem.split(" ").map(Number));
+const commands = input.slice(N).shift().split(" ").map(Number);
+
+// console.log(N, M, x, y, K);
+console.log(map);
+// console.log(commands);
+
+let top = 0;
+let bottom = 0;
+let front = 0;
+let back = 0;
+let left = 0;
+let right = 0;
+
+//동쪽은 1, 서쪽은 2, 북쪽은 3, 남쪽은 4
+const rotate = (direction) => {
+  if (direction === 1) {
+    [top, left, bottom, right] = [left, bottom, right, top];
+  } else if (direction === 2) {
+    [top, left, bottom, right] = [right, top, left, bottom];
+  } else if (direction === 3) {
+    [top, front, bottom, back] = [front, bottom, back, top];
+  } else if (direction === 4) {
+    [top, front, bottom, back] = [back, top, front, bottom];
+  }
+};
+
+for (let i = 0; i < K; i++) {
+  const direction = commands[i];
+  // console.log(direction);
+  rotate(direction);
+}
