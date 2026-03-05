@@ -17,8 +17,10 @@ const [N, M, x, y, K] = input.shift().split(" ").map(Number);
 const map = input.slice(0, N).map((elem) => elem.split(" ").map(Number));
 const commands = input.slice(N).shift().split(" ").map(Number);
 
+const result = [];
+
 // console.log(N, M, x, y, K);
-console.log(map);
+// console.log(map);
 // console.log(commands);
 
 let top = 0;
@@ -41,8 +43,36 @@ const rotate = (direction) => {
   }
 };
 
+let diceX = x;
+let diceY = y;
+
+// 동(1), 서(2), 북(3), 남(4)
+const dx = [0, 0, 0, -1, 1];
+const dy = [0, 1, -1, 0, 0];
+
 for (let i = 0; i < K; i++) {
   const direction = commands[i];
-  // console.log(direction);
+
+  const nx = diceX + dx[direction];
+  const ny = diceY + dy[direction];
+
+  if (nx < 0 || nx >= N || ny < 0 || ny >= M) {
+    continue;
+  }
+
+  diceX = nx;
+  diceY = ny;
+
   rotate(direction);
+
+  if (map[nx][ny] === 0) {
+    map[nx][ny] = bottom;
+  } else {
+    bottom = map[nx][ny];
+    map[nx][ny] = 0;
+  }
+
+  result.push(top);
 }
+
+console.log(result.join("\n"));
